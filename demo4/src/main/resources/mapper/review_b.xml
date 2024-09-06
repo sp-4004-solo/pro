@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.java.mapper.ReviewMapper">
+
+	
+	<select id="selectReviewAll" resultType="com.java.dto.User_review">
+		select * from User_review order by REVIEW_NO desc
+	</select>
+	
+	<select id="selectOne" resultType="com.java.dto.User_review">
+		select * from User_review where review_no=#{review_no}
+	</select>
+
+	<insert id="insertOne">
+		INSERT INTO USER_REVIEW 
+		(REVIEW_NO,USER_ID, REVIEW_TITLE,AREA,REVIEW_CONTENT
+		,REVIEW_IMAGE, REVIEW_DATE, REVIEW_HIT, REVIEW_LIKES)
+		VALUES 
+		(user_seq.nextval,#{user_id},#{review_title}
+		,#{area},#{review_content},#{review_image},sysdate,0,0) 
+	</insert>
+
+
+
+
+
+
+</mapper>
